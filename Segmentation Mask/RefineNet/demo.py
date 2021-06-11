@@ -16,7 +16,8 @@ from utils.visualization import visualize_segmentation_adaptive
 tf.app.flags.DEFINE_string('test_data_path', 'demo', '')
 tf.app.flags.DEFINE_string('gpu_list', '0', '')
 tf.app.flags.DEFINE_integer('num_classes', 21, '')
-tf.app.flags.DEFINE_string('checkpoint_path', 'checkpoints/', '')
+#tf.app.flags.DEFINE_string('checkpoint_path', 'checkpoints/', '')
+tf.app.flags.DEFINE_string('model_path', 'pretrained_model/model_resnet', '')
 tf.app.flags.DEFINE_string('result_path', 'result/', '')
 
 FLAGS = tf.app.flags.FLAGS
@@ -71,8 +72,9 @@ def main(argv=None):
         saver = tf.train.Saver(variable_averages.variables_to_restore())
 
         with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
-            ckpt_state = tf.train.get_checkpoint_state(FLAGS.checkpoint_path)
-            model_path = os.path.join(FLAGS.checkpoint_path, os.path.basename(ckpt_state.model_checkpoint_path))
+            #ckpt_state = tf.train.get_checkpoint_state(FLAGS.checkpoint_path)
+            #model_path = os.path.join(FLAGS.checkpoint_path, os.path.basename(ckpt_state.model_checkpoint_path))
+            model_path = FLAGS.model_path
             print('Restore from {}'.format(model_path))
             saver.restore(sess, model_path)
 
