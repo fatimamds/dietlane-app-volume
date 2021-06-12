@@ -76,10 +76,10 @@ def main(argv=None):
             #model_path = os.path.join(FLAGS.checkpoint_path, os.path.basename(ckpt_state.model_checkpoint_path))    #model_path = FLAGS.model_path
             #print('Restore from {}'.format(model_path))
             
-            # imported = tf.saved_model.load('pretrained_model/model_resnet')
+            ## imported = tf.saved_model.load('pretrained_model/model_resnet')
             #saver = tf.train.import_meta_graph('pretrained_model/model_resnet.meta')  #First let's load meta graph and restore weights
-             
-            saver.restore(sess, 'pretrained_model/model_resnet/')   #saver.restore(sess, model_path)     #saver.restore(sess,tf.train.latest_checkpoint('./')) 
+            saver = tf.train.import_meta_graph('pretrained_model/model_resnet/' + '.meta')
+            saver.restore(sess,tf.train.latest_checkpoint('./'))      #saver.restore(sess, 'pretrained_model/model_resnet/')   #saver.restore(sess, model_path)
             sess=tf.Session()
 
             im_fn_list = get_images()
