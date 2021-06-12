@@ -17,7 +17,7 @@ tf.app.flags.DEFINE_string('test_data_path', 'demo', '')
 tf.app.flags.DEFINE_string('gpu_list', '0', '')
 tf.app.flags.DEFINE_integer('num_classes', 21, '')
 #tf.app.flags.DEFINE_string('checkpoint_path', 'checkpoints/', '')
-tf.app.flags.DEFINE_string('model_path', 'pretrained_model/model_resnet', '')
+#tf.app.flags.DEFINE_string('model_path', 'pretrained_model/model_resnet', '')
 tf.app.flags.DEFINE_string('result_path', 'result/', '')
 
 FLAGS = tf.app.flags.FLAGS
@@ -71,12 +71,16 @@ def main(argv=None):
         variable_averages = tf.train.ExponentialMovingAverage(0.997, global_step)
         saver = tf.train.Saver(variable_averages.variables_to_restore())
 
-        with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
+        with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:  #sess = tf.Session()
             #ckpt_state = tf.train.get_checkpoint_state(FLAGS.checkpoint_path)
-            #model_path = os.path.join(FLAGS.checkpoint_path, os.path.basename(ckpt_state.model_checkpoint_path))
-            model_path = FLAGS.model_path
-            print('Restore from {}'.format(model_path))
-            saver.restore(sess, model_path)
+            #model_path = os.path.join(FLAGS.checkpoint_path, os.path.basename(ckpt_state.model_checkpoint_path))    #model_path = FLAGS.model_path
+            #print('Restore from {}'.format(model_path))
+            
+            # imported = tf.saved_model.load('pretrained_model/model_resnet')
+            #saver = tf.train.import_meta_graph('pretrained_model/model_resnet.meta')  #First let's load meta graph and restore weights
+             
+            saver.restore(sess, 'pretrained_model/model_resnet/')   #saver.restore(sess, model_path)     #saver.restore(sess,tf.train.latest_checkpoint('./')) 
+            sess=tf.Session()
 
             im_fn_list = get_images()
             for im_fn in im_fn_list:
