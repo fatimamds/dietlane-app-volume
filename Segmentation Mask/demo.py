@@ -78,7 +78,7 @@ def main(argv=None):
             
             ## imported = tf.saved_model.load('pretrained_model/model_resnet')
             #saver = tf.train.import_meta_graph('pretrained_model/model_resnet.meta')  #First let's load meta graph and restore weights
-            saver = tf.train.import_meta_graph('pretrained_model/model_resnet/' + '.meta')
+            saver = tf.train.import_meta_graph('pretrained_model/model_resnet' + '.meta')
             saver.restore(sess,tf.train.latest_checkpoint('./'))      #saver.restore(sess, 'pretrained_model/model_resnet/')   #saver.restore(sess, model_path)
             sess=tf.Session()
 
