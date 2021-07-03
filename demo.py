@@ -81,7 +81,7 @@ def test(nyu2_loader, model, width, height):
         out_file.write("\n")
         out_file.write("unit: cm^3")
         out_file.close()
-        get_mask(out_grey, args.json, args.output)
+        get_mask(out_grey, args.json)  #get_mask(out_grey, args.json, args.output)
         
 if __name__ == '__main__':
     main()
