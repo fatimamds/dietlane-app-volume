@@ -52,5 +52,5 @@ def get_mask(img, json_path):
 
         cv2.imwrite("mask.png", mask)
 
-img = cv2.imread("out.png",0)
-get_mask(img, "test.json")
+#img = cv2.imread("out.png",0)
+#get_mask(img, "test.json")
