@@ -51,7 +51,7 @@ def get_mask(img, json_path):
                     if (cv2.pointPolygonTest(points, (i, j), False) >= 0):
                         mask[j][i] = color[label]
 
-        cv2.imwrite("mask.png", mask)
+        cv2.imwrite("output/mask.png", mask)
 
 #img = cv2.imread("out.png",0)
 #get_mask(img, "test.json")

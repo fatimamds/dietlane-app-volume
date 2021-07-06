@@ -8,6 +8,7 @@ import numpy as np
 import loaddata_demo as loaddata
 import pdb
 import argparse
+import json
 from volume import get_volume
 from mask import get_mask
 
@@ -15,7 +16,7 @@ import matplotlib.image
 import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser(description='KD-network')
-parser.add_argument('--img', metavar='DIR',default="./input/test.jpg",
+parser.add_argument('--img', metavar='DIR',default="./input/test.png",
                     help='img to input')
 parser.add_argument('--json', metavar='DIR',default="./input/test.json",
                     help='json file to input')
@@ -71,17 +72,28 @@ def test(nyu2_loader, model, width, height):
         out_grey = cv2.imread(os.path.join(args.output, "out_grey.png"),0)
         out_color = cv2.applyColorMap(out_grey, cv2.COLORMAP_JET)
         cv2.imwrite(os.path.join(args.output, "out_color.png"),out_color)
+        get_mask(out_grey, args.json)  #get_mask(out_grey, args.json, args.output)
         vol = get_volume(out_grey, args.json)
         print("Volume:")
         print(vol)
         print("unit: cm^3")
+        # OUTPUT JSON FILE
+        output_json = {
+            "volume": vol,
+            "unit": "cm^3"
+            }   
+        # python dump to json:
+        with open(os.path.join(args.output, "output/volume.json"), "w") as write_file:
+            json.dump(output_json, write_file, indent=4)
+        """
+        # OUTPUT TEXT FILE
         out_file = open(os.path.join(args.output, "out.txt"), "w")
         out_file.write("Volume:\n")
         out_file.write(str(vol))
         out_file.write("\n")
         out_file.write("unit: cm^3")
         out_file.close()
-        get_mask(out_grey, args.json)  #get_mask(out_grey, args.json, args.output)
+        """
         
 if __name__ == '__main__':
     main()
