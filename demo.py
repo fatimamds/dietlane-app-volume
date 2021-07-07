@@ -77,13 +77,14 @@ def test(nyu2_loader, model, width, height):
         print("Volume:")
         print(vol)
         print("unit: cm^3")
+
         # OUTPUT JSON FILE
         output_json = {
             "volume": vol,
             "unit": "cm^3"
             }   
         # python dump to json:
-        with open(os.path.join(args.output, "output/volume.json"), "w") as write_file:
+        with open(os.path.join(args.output, "volume.json"), "w") as write_file:
             json.dump(output_json, write_file, indent=4)
         """
         # OUTPUT TEXT FILE

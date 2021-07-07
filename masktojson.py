@@ -3,7 +3,7 @@ import labelme
 import base64
 import numpy as np
 import matplotlib.pyplot as plt
-import palette as pal
+import palette
 from overlaytomask import gen_rgb_mask
 
 gen_rgb_mask()
@@ -51,8 +51,8 @@ if circles is not None:
 
    # finding list of contour points, with every 80th point (for total 2284 points detected)
    cnt_pts = []
-   c30th = c[0::30]
-   for item in c30th:
+   c80th = c[0::80]
+   for item in c80th:
      pt = [j for n in item for j in n]
      cnt_pts.append(pt)
    cnt_pts = np.array(cnt_pts) # converting to numpy array
@@ -74,7 +74,7 @@ mask_image = cv2.imread("demo/rgb_mask.png")
 # convert to RGB
 mask_image = cv2.cvtColor(mask_image, cv2.COLOR_BGR2RGB)
 
-for i, color in enumerate(pal.palette):
+for i, color in enumerate(palette.palette):
   if color!=[0, 0, 0]:
     lower = [i-10 if i!=0 else i for i in color] #lower = [0,220,30]    #lower = [max(0, i-10) for i in color] 
     upper = [i+10 if i!=0 else i for i in color] #upper = [0,240,50]
@@ -103,7 +103,7 @@ for i, color in enumerate(pal.palette):
 
       # Defining JSON object for the item
       inner_object = {
-      "label": pal.getlabel(i),
+      "label": pallete.getlabel(i),
       "line_color": None,
       "fill_color": None,
       "points": cnt_pts.tolist(),     #"points": c.tolist(),
