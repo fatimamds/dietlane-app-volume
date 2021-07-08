@@ -103,7 +103,7 @@ for i, color in enumerate(palette.palette):
 
       # Defining JSON object for the item
       inner_object = {
-      "label": pallete.getlabel(i),
+      "label": palette.getlabel(i),
       "line_color": None,
       "fill_color": None,
       "points": cnt_pts.tolist(),     #"points": c.tolist(),
