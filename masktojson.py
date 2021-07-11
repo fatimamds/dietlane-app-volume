@@ -3,8 +3,8 @@ import labelme
 import base64
 import numpy as np
 import matplotlib.pyplot as plt
-import palette
-from overlaytomask import gen_rgb_mask
+from .palette import *
+from .overlaytomask import gen_rgb_mask
 
 gen_rgb_mask()
 

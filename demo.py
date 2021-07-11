@@ -9,8 +9,9 @@ import loaddata_demo as loaddata
 import pdb
 import argparse
 import json
-from volume import get_volume
-from mask import get_mask
+from .volume import get_volume
+from .mask import get_mask
+from .palette import getnutrients
 
 import matplotlib.image
 import matplotlib.pyplot as plt
@@ -79,13 +80,26 @@ def test(nyu2_loader, model, width, height):
         print("unit: cm^3")
 
         # OUTPUT JSON FILE
-        output_json = {
-            "volume": vol,
-            "unit": "cm^3"
-            }   
+        output_json = []
+        for i in vol:
+            nutrients = getnutrients(i)  # [calories(kcal), protein(g), fats(g), carbs(g), fiber(g)] per 100gms
+            for nutrient in nutrients:
+                nutrient = (nutrient/100) * vol[i]
+            vol_obj = {
+                "name": i,       # each key in 'vol', ie name of item
+                "measure": vol[i], # value for each key in 'vol', ie volume of item
+                "calories": nutrients[0],
+                "proteins": nutrients[1],
+                "fats": nutrients[2],
+                "carbs": nutrients[3],
+                "fiber": nutrients[4]
+                }
+            output_json.append(vol_obj)
         # python dump to json:
         with open(os.path.join(args.output, "volume.json"), "w") as write_file:
             json.dump(output_json, write_file, indent=4)
+
+        
         """
         # OUTPUT TEXT FILE
         out_file = open(os.path.join(args.output, "out.txt"), "w")

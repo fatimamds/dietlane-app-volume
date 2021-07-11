@@ -2,12 +2,12 @@ classnames=["BACKGROUND", "candy", "egg tart", "french fries", "chocolate", "bis
             "cheese butter", "cake", "wine", "milkshake", "coffee", "juice", "milk", "tea", "almond", "red beans", 
             "cashew", "dried cranberries", "soy", "walnut", "peanut", "egg", "apple", "date", "apricot", "avocado", 
             "banana", "strawberry", "cherry", "blueberry", "raspberry", "mango", "olives", "peach", "lemon", "pear", 
-            "fig", "pineapple", "grape", "kiwi", "melon", "orange", "watermelon", "steak", "pork", "chicken duck", 
+            "fig", "pineapple", "grape", "kiwi", "melon", "orange", "watermelon", "steak", "chicken", "turkey", 
             "sausage", "fried meat", "lamb", "sauce", "crab", "fish", "shellfish", "shrimp", "soup", "bread", "corn", 
-            "hamburger", "pizza", "hanamaki baozi", "wonton dumplings", "pasta", "noodles", "rice", "pie", "tofu", 
+            "hamburger", "pizza", "steamed bun", "wonton dumplings", "pasta", "noodles", "rice", "pie", "tofu", 
             "eggplant", "potato", "garlic", "cauliflower", "tomato", "kelp", "seaweed", "spring onion", "grape", 
             "ginger", "okra", "lettuce", "pumpkin", "cucumber", "white radish", "carrot", "asparagus", "bamboo shoots", 
-            "broccoli", "celery stick", "cilantro mint", "snow peas", "cabbage", "bean sprouts", "onion", "pepper", 
+            "broccoli", "celery", "cilantro mint", "snow peas", "cabbage", "bean sprouts", "onion", "pepper", 
             "green beans", "French beans", "king oyster mushroom", "shiitake", "enoki mushroom", "oyster mushroom", 
             "white button mushroom", "salad", "other ingredients"]
 
@@ -25,9 +25,40 @@ palette = [[0, 0, 0], [40, 100, 150], [80, 150, 200], [120, 200, 10], [160, 10, 
            [200, 20, 200], [150, 150, 20], [20, 150, 250], [40, 40, 90], [230, 190, 40], [220, 40, 90], [60, 200, 40], [20, 200, 150], 
            [130, 200, 0], [160, 40, 100], [90, 100, 150], [180, 10, 240], [20, 170, 80], [20, 110, 255], [30, 220, 100], [140, 210, 160]]
 
+nutrients = [ [0, 0, 0, 0, 0], [394, 0, 0.2, 98, 0], [368, 4.29, 22.7, 86.81, 0], [196, 1.93, 13.1, 18.5, 1.6], [528, 4.5, 33.2, 60.18, 6.4], [406, 7.05, 10.58, 70.54, 3.5], 
+            [538, 8.69, 31.07, 55.99, 10.1], [108, 3.23, 2.15, 18.39, 0.3], [221, 3.57, 11.3, 26.36, 0.8], [717, 16.09, 81.11, 8.85, 0], [247, 4.44, 2.22, 52.64, 1], 
+            [82, 0.07, 0, 2.6, 0], [124, 3.77, 6.11, 13.66, 0.2], [5, 1.18, 0.78, 0, 0], [50, 0.06, 0.12, 12.46, 0.2], [60, 3.28, 3.2, 4.67, 0], [1, 0, 0, 0.3, 0], 
+            [598, 20.96, 52.54, 21.01, 10.9], [176, 8.06, 6.97, 21.19, 6.9], [574, 15.31, 46.35, 32.69, 3], [308, 0.17, 1.09, 82.8, 5.3], [469, 38.55, 25.4, 30.22, 17.7], 
+            [654, 15.23, 65.21, 13.71, 6.7], [587, 24.35, 49.66, 	21.26, 8.4], [180, 11.76, 14.15, 0.68, 0], [52, 0.26, 0.17, 13.81, 2.4], [282, 2.45, 0.39, 75.03, 8], 
+            [48, 1.4, 0.39, 11.12, 2], [160, 2, 14.66, 8.53, 6.7], [89, 1.09, 0.33, 22.84, 2.6], [32, 0.67, 0.3, 7.68, 2], [63, 1.06, 0.2, 16.01, 2.1], 
+            [57, 0.74, 0.33, 14.49, 2.4], [52, 1.2, 0.65, 11.94, 6.5], [60, 0.82, 0.38, 14.98, 1.6], [116, 0.84, 10.9, 6.04, 1.6], [42, 0.91, 0.27, 10.1, 1.5], 
+            [29, 1.1, 0.3, 9.32, 2.8], [57, 0.36, 0.14, 15.23, 3.1], [74, 0.75, 0.3, 19.18, 2.9], [50, 0.54, 0.12, 13.12, 1.4], [69, 0.72, 0.16, 18.1, 0.9], 
+            [58, 1.06, 0.44, 14, 3], [36, 0.54, 0.14, 9.09, 0.8], [47, 0.94, 0.12, 11.75, 2.4], [30, 0.61, 0.15, 7.55, 0.4], [144, 11.87, 9.12, 4.42, 0.7], 
+            [175, 26.37, 7.67, 0.09, 0], [336, 18.91, 28.23, 0, 0], [325, 18.53, 27.25, 1.42, 0], [235, 27.06, 13.44, 0, 0], [124, 13.07, 6.38, 3.1, 0.4], 
+            [45, 1.41, 1.48, 8.05, 1.8], [137, 13.96, 7.31, 3.2, 0.2], [217, 13.93, 13.06, 10.31, 1.1], [158, 20.38, 4.59, 7.26, 0], [212, 15.15, 11.6, 11.02, 0.6 ], 
+            [24, 1.2, 0.78, 3.07, 0.5 ], [270, 9.43, 3.59, 49.2, 2.3 ], [88, 2.23, 3.73, 13.93, 1.9 ], [288, 17.51, 14.38, 20.68, 0.7 ], [273, 7.3, 13.54, 30.68, 1.8 ], 
+            [124, 3.31, 3.21, 20.26, 0.7], [113, 6.9, 4.6, 11.07, 1.2 ], [157, 5.76, 0.92, 30.68, 1.8 ], [148, 7.73, 6.14, 15.47, 0.7 ], [129, 2.67, 0.28, 27.99, 0.4 ], 
+            [237, 1.9, 11, 34, 1.6 ], [61, 7.17, 3.69, 1.18, 0.2 ], [27, 1.05, 0.19, 6.32, 3.2 ], [125, 1.87, 4.24, 20.45, 1.4 ], [148, 6.32, 0.5, 32.86, 2.1 ], 
+            [49, 1.94, 2.92, 5.02, 2 ], [50, 1.08, 3.41, 4.71, 1.5 ], [63, 3.41, 3.05, 7.71, 0.7 ], [63, 3.41, 3.05, 7.71, 0.7 ], [32, 1.83, 0.19, 7.34, 2.6 ], 
+            [69, 0.72, 0.16, 18.1, 0.9 ], [20, 0.33, 0.1, 4.83, 2.6 ], [59, 2.02, 2.92, 7.76, 3.3 ], [14, 1.13, 0.14, 2.92, 1.2 ], [51, 1.05, 2.83, 6.77, 0.5 ], 
+            [15, 0.65, 0.11, 3.63, 0.5 ], [16, 0.68, 0.1, 3.4, 1.6 ], [41, 0.93, 0.24, 9.58, 2.8 ], [45, 2.3, 2.85, 4.04, 2.2 ], [41, 1.68, 2.93, 3.13, 1.4 ], 
+            [34, 2.82, 0.37, 6.64, 2.6 ], [39, 0.73, 2.9, 3.1, 1.7 ], [23, 2.13, 0.52, 3.67, 2.8 ], [42, 2.8, 0.2, 7.55, 2.6 ], [25, 1.28, 0.1, 5.8, 2.5 ], 
+            [116, 9.8, 6.92, 6.08, 3.3 ], [40, 1.1, 0.1, 9.34, 1.7 ], [22, 0.91, 0.22, 5.13, 1.8 ], [49, 1.44, 2.89, 5.52, 2.3 ], [49, 1.44, 2.89, 5.52, 2.3 ], 
+            [55, 3.75, 3.58, 3.95, 1.2 ], [56, 1.56, 0.22, 14.35, 2.1 ], [55, 3.75, 3.58, 3.95, 1.2], [55, 3.75, 3.58, 3.95, 1.2], [55, 3.75, 3.58, 3.95, 1.2 ], 
+            [25, 2.58, 0.66, 3.65, 1.6 ], [0, 0, 0, 0, 0] ]
+
+
+# returns labelname for a particular class index
 def getlabel(idx):
    return classnames[idx]
 
+# returns nutrient-profile (per 100gms) for particular food-item as list of: [calories, protein, fats, carbs, fiber]
+def getnutrients(idx):
+   if type(idx) == str:          #ie when index == labelname
+     idx = classnames.index(idx) 
+   return nutrients[idx]
+
+# shows color-image for rgb-value of a particular food-item
 def showcolor(idx):
    if type(idx) == str:          #ie when index == labelname
      idx = classnames.index(idx) 
@@ -37,6 +68,7 @@ def showcolor(idx):
    plt.title('(rgb = {})'.format(palette[idx]))  #print('I have {} {}'.format(a, b))
    plt.imshow([[rgb]])
 
+# displays all colors as dict of: {'food_item': [r, g, b]}
 def getcolor():
     color = {}
     for i, rgb in enumerate(palette):
