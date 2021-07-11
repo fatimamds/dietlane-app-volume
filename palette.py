@@ -58,7 +58,7 @@ def getnutrients(idx):
      idx = classnames.index(idx) 
    return nutrients[idx]
 
-# shows color-image for rgb-value of a particular food-item
+# shows colored-image for rgb-value of a particular food-item
 def showcolor(idx):
    if type(idx) == str:          #ie when index == labelname
      idx = classnames.index(idx) 
