@@ -3,8 +3,8 @@ import labelme
 import base64
 import numpy as np
 import matplotlib.pyplot as plt
-import palette
-from overlaytomask import gen_rgb_mask
+from .palette import *
+from .overlaytomask import gen_rgb_mask
 
 gen_rgb_mask()
 
@@ -103,7 +103,7 @@ for i, color in enumerate(palette.palette):
 
       # Defining JSON object for the item
       inner_object = {
-      "label": pallete.getlabel(i),
+      "label": palette.getlabel(i),
       "line_color": None,
       "fill_color": None,
       "points": cnt_pts.tolist(),     #"points": c.tolist(),
