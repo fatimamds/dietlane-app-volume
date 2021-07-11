@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import json
 from PIL import Image, ImageDraw
-from .palette import getcolor
+from palette import getcolor
 
 color = getcolor()
 

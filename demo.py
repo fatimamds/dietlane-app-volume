@@ -8,13 +8,10 @@ from . import loaddata_demo as loaddata
 import pdb
 import argparse
 import json
-# import resnet, densenet
-from .modules import *
-from .net import *
-from .senet import *
-from .volume import get_volume
-from .mask import get_mask
-from .palette import getnutrients
+import modules, net, senet         # removed densenet & resnet
+from volume import get_volume
+from mask import get_mask
+from palette import getnutrients
 
 import matplotlib.image
 import matplotlib.pyplot as plt
