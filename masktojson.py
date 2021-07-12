@@ -74,6 +74,8 @@ mask_image = cv2.imread("demo/rgb_mask.png")
 # convert to RGB
 mask_image = cv2.cvtColor(mask_image, cv2.COLOR_BGR2RGB)
 
+min_pixel = mask_image.shape[0]*mask_image.shape[1]/60
+
 for i, color in enumerate(palette.palette):
   if color!=[0, 0, 0]:
     lower = [i-10 if i!=0 else i for i in color] #lower = [0,220,30]    #lower = [max(0, i-10) for i in color] 
@@ -86,7 +88,7 @@ for i, color in enumerate(palette.palette):
     mask = cv2.inRange(mask_image, lower, upper)
 
     # Determine if the color exists on the mask_image
-    if cv2.countNonZero(mask) > 60000:  #if pixel count for that color is greater than 60000
+    if cv2.countNonZero(mask) > min_pixel:  #if pixel count for that color is greater than 60000
       # thresholding mask image
       ret,thresh = cv2.threshold(mask, 40, 255, 0)
     
