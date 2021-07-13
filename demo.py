@@ -4,7 +4,7 @@ import cv2
 import os
 import torch.nn.parallel
 import numpy as np
-from . import loaddata_demo as loaddata
+import loaddata_demo as loaddata
 import pdb
 import argparse
 import json
